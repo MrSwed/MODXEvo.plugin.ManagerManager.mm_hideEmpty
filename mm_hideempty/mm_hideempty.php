@@ -5,7 +5,12 @@
  * 
  * @desc A widget for ManagerManager plugin that allows to hide all empty sections and tabs.
  * 
- * @uses ManagerManager plugin 0.6.2.
+ * @uses PHP >= 5.4.
+ * @uses MODXEvo.plugin.ManagerManager >= 0.7.
+ * 
+ * @param $params {array_associative|stdClass} — The object of params. @required
+ * @param $params['roles'] {string_commaSeparated} — Roles that the widget is applied to (when this parameter is empty then widget is applied to the all roles). Default: ''.
+ * @param $params['templates'] {string_commaSeparated} — Templates IDs for which the widget is applying (empty value means the widget is applying to all templates). Default: ''.
  * 
  * @event OnDocFormPrerender
  * @event OnDocFormRender
@@ -17,8 +22,29 @@
  * @copyright 2016
  */
 
-function mm_hideEmpty($roles = '', $templates = ''){
-	if (!useThisRule($roles, $templates)){return;}
+function mm_hideEmpty($params = []){
+	//For backward compatibility
+	if (
+		!is_array($params) &&
+		!is_object($params)
+	){
+		//Convert ordered list of params to named
+		$params = ddTools::orderedParamsToNamed([
+			'paramsList' => func_get_args(),
+			'compliance' => [
+				'roles',
+				'templates'
+			]
+		]);
+	}
+	
+	//Defaults
+	$params = (object) array_merge([
+		'roles' => '',
+		'templates' => ''
+	], (array) $params);
+	
+	if (!useThisRule($params->roles, $params->templates)){return;}
 	
 	global $modx;
 	$e = &$modx->Event;
