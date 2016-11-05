@@ -7,6 +7,9 @@
  * 
  * @uses ManagerManager plugin 0.6.2.
  * 
+ * @event OnDocFormPrerender
+ * @event OnDocFormRender
+ * 
  * @author Sergey Davydov <webmaster@sdcollection.com>
  * 
  * @link https://github.com/MrSwed/MODXEvo.plugin.ManagerManager.mm_hideEmpty
@@ -15,37 +18,22 @@
  */
 
 function mm_hideEmpty($roles = '', $templates = ''){
+	if (!useThisRule($roles, $templates)){return;}
+	
 	global $modx;
 	$e = &$modx->Event;
 	
 	// if the current page is being edited by someone in the list of roles, and uses a template in the list of templates
-	if (
-		$e->name == 'OnDocFormRender' &&
-		useThisRule($roles, $templates)
-	){
+	if ($e->name == 'OnDocFormPrerender'){
+		//The main js file including
+		$output = includeJsCss($modx->getConfig('site_url').'assets/plugins/managermanager/widgets/mm_hideempty/jQuery.ddMM.mm_hideEmpty.js', 'html', 'jQuery.ddMM.mm_hideEmpty', '1.0');
+		
+		$e->output($output);
+	}else if ($e->name == 'OnDocFormRender'){
 		$output = '//---------- mm_hideEmpty :: Begin -----'.PHP_EOL;
 		
-		$output .= '
-//Empty sections
-$j(".sectionBody[id]:not(:has([name])):not(:has(iframe))").each(function(){
-	var $this = $j(this),
-		id = $this.attr("id").match(/(.+)_[^_]+$/)[1];
-	
-	//Section header
-	$j("#" + id + "_header").hide();
-	//Section body
-	$this.hide();
-});
-//Empty tabs
-$j(".tab-pane .tab-page:not(:has([name])):not(:has(iframe))").each(function(){
-	var $this = $j(this);
-	
-	//Page
-	$this.hide();
-	//Navigation item
-	$j(".tab-pane .tab-row .tab").eq($this.get(0).tabPage.index).hide();
-});
-';
+		$output .= '$j.ddMM.mm_hideEmpty.hideEmptySections();'.PHP_EOL;
+		$output .= '$j.ddMM.mm_hideEmpty.hideEmptyTabs();'.PHP_EOL;
 		
 		$output .= '//---------- mm_hideEmpty :: End -----'.PHP_EOL;
 		
