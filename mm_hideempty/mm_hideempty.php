@@ -1,7 +1,7 @@
 <?php
 /**
  * mm_hideEmpty
- * @version 0.1 (2016.02.12)
+ * @version 0.2 (2016-11-05)
  * 
  * @desc A widget for ManagerManager plugin that allows to hide all empty sections and tabs.
  * 
@@ -16,8 +16,10 @@
  * @event OnDocFormRender
  * 
  * @author Sergey Davydov <webmaster@sdcollection.com>
+ * @author DivanDesign <code@DivanDesign.biz>
  * 
  * @link https://github.com/MrSwed/MODXEvo.plugin.ManagerManager.mm_hideEmpty
+ * @link http://code.divandesign.biz/modx/mm_hideempty/0.2
  * 
  * @copyright 2016
  */
