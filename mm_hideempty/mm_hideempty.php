@@ -3,23 +3,13 @@
  * mm_hideEmpty
  * @version 0.2 (2016-11-05)
  * 
- * @desc A widget for ManagerManager plugin that allows to hide all empty sections and tabs.
- * 
- * @uses PHP >= 5.4.
- * @uses MODXEvo.plugin.ManagerManager >= 0.7.
- * 
- * @param $params {array_associative|stdClass} — The object of params. @required
- * @param $params['roles'] {string_commaSeparated} — Roles that the widget is applied to (when this parameter is empty then widget is applied to the all roles). Default: ''.
- * @param $params['templates'] {string_commaSeparated} — Templates IDs for which the widget is applying (empty value means the widget is applying to all templates). Default: ''.
- * 
- * @event OnDocFormPrerender
- * @event OnDocFormRender
+ * @see README.md
  * 
  * @author Sergey Davydov <webmaster@sdcollection.com>
  * @author DivanDesign <code@DivanDesign.biz>
  * 
+ * @link http://code.divandesign.biz/modx/mm_hideempty
  * @link https://github.com/MrSwed/MODXEvo.plugin.ManagerManager.mm_hideEmpty
- * @link http://code.divandesign.biz/modx/mm_hideempty/0.2
  * 
  * @copyright 2016
  */
