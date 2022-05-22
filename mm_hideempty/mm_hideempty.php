@@ -28,29 +28,43 @@ function mm_hideEmpty($params = []){
 	}
 	
 	//Defaults
-	$params = (object) array_merge([
-		'roles' => '',
-		'templates' => ''
-	], (array) $params);
+	$params = (object) array_merge(
+		[
+			'roles' => '',
+			'templates' => ''
+		],
+		(array) $params
+	);
 	
-	if (!useThisRule($params->roles, $params->templates)){return;}
+	if (
+		!useThisRule(
+			$params->roles,
+			$params->templates
+		)
+	){
+		return;
+	}
 	
 	global $modx;
 	$e = &$modx->Event;
 	
-	// if the current page is being edited by someone in the list of roles, and uses a template in the list of templates
 	if ($e->name == 'OnDocFormPrerender'){
 		//The main js file including
-		$output = includeJsCss($modx->getConfig('site_url').'assets/plugins/managermanager/widgets/mm_hideempty/jQuery.ddMM.mm_hideEmpty.js', 'html', 'jQuery.ddMM.mm_hideEmpty', '1.0');
+		$output = includeJsCss(
+			$modx->getConfig('site_url') . 'assets/plugins/managermanager/widgets/mm_hideempty/jQuery.ddMM.mm_hideEmpty.js',
+			'html',
+			'jQuery.ddMM.mm_hideEmpty',
+			'1.0'
+		);
 		
 		$e->output($output);
 	}else if ($e->name == 'OnDocFormRender'){
-		$output = '//---------- mm_hideEmpty :: Begin -----'.PHP_EOL;
+		$output = '//---------- mm_hideEmpty :: Begin -----' . PHP_EOL;
 		
-		$output .= '$j.ddMM.mm_hideEmpty.hideEmptySections();'.PHP_EOL;
-		$output .= '$j.ddMM.mm_hideEmpty.hideEmptyTabs();'.PHP_EOL;
+		$output .= '$j.ddMM.mm_hideEmpty.hideEmptySections();' . PHP_EOL;
+		$output .= '$j.ddMM.mm_hideEmpty.hideEmptyTabs();' . PHP_EOL;
 		
-		$output .= '//---------- mm_hideEmpty :: End -----'.PHP_EOL;
+		$output .= '//---------- mm_hideEmpty :: End -----' . PHP_EOL;
 		
 		$e->output($output);
 	}
