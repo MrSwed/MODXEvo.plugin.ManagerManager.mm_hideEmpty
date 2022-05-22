@@ -27,14 +27,16 @@ function mm_hideEmpty($params = []){
 		]);
 	}
 	
-	//Defaults
-	$params = (object) array_merge(
-		[
-			'roles' => '',
-			'templates' => ''
-		],
-		(array) $params
-	);
+	$params = \DDTools\ObjectTools::extend([
+		'objects' => [
+			//Defaults
+			(object) [
+				'roles' => '',
+				'templates' => ''
+			],
+			$params
+		]
+	]);
 	
 	if (
 		!useThisRule(
