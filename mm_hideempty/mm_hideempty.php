@@ -5,9 +5,6 @@
  * 
  * @see README.md
  * 
- * @author Sergey Davydov <webmaster@sdcollection.com>
- * @author DivanDesign <code@DivanDesign.biz>
- * 
  * @link http://code.divandesign.biz/modx/mm_hideempty
  * @link https://github.com/MrSwed/MODXEvo.plugin.ManagerManager.mm_hideEmpty
  * 
