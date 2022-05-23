@@ -1,14 +1,14 @@
 <?php
 /**
  * mm_hideEmpty
- * @version 0.2 (2016-11-05)
+ * @version 1.0 (2022-05-23)
  * 
  * @see README.md
  * 
  * @link http://code.divandesign.biz/modx/mm_hideempty
  * @link https://github.com/MrSwed/MODXEvo.plugin.ManagerManager.mm_hideEmpty
  * 
- * @copyright 2016
+ * @copyright 2016–2022
  */
 
 function mm_hideEmpty($params = []){
