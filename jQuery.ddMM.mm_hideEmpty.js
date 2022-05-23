@@ -1,6 +1,6 @@
 /**
  * jQuery.ddMM.mm_hideEmpty
- * @version 1.1 (2022-05-23)
+ * @version 1.2 (2022-05-23)
  * 
  * @copyright 2016–2022
  */
@@ -9,7 +9,7 @@
 $.ddMM.mm_hideEmpty = {
 	/**
 	 * @method hideEmptySections
-	 * @version 1.0.3 (2022-05-23)
+	 * @version 1.1 (2022-05-23)
 	 * 
 	 * @desc Hide empty sections.
 	 * 
@@ -17,19 +17,15 @@ $.ddMM.mm_hideEmpty = {
 	 */
 	hideEmptySections: function(){
 		this
-			.getEmptyElements('.sectionBody[id]')
+			.getEmptyElements('.sectionBody')
 			.each(function(){
-				var
-					$this = $(this),
-					id =
-						$this
-							.attr('id')
-							.match(/(.+)_[^_]+$/)
-							[1]
-				;
+				var $this = $(this);
 				
 				//Section header
-				$('#' + id + '_header').hide();
+				$this
+					.prev('.sectionHeader')
+					.hide()
+				;
 				
 				//Section body
 				$this.hide();
