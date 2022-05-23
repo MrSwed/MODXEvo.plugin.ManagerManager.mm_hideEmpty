@@ -1,6 +1,6 @@
 /**
  * jQuery.ddMM.mm_hideEmpty
- * @version 1.0.2 (2022-05-23)
+ * @version 1.0.3 (2022-05-23)
  * 
  * @copyright 2016–2022
  */
@@ -9,19 +9,15 @@
 $.ddMM.mm_hideEmpty = {
 	/**
 	 * @method hideEmptySections
-	 * @version 1.0.2 (2022-05-23)
+	 * @version 1.0.3 (2022-05-23)
 	 * 
 	 * @desc Hide empty sections.
 	 * 
 	 * @returns {void}
 	 */
 	hideEmptySections: function(){
-		//Find sections
-		$('.sectionBody[id]')
-			//That has no inputs
-			.not(':has([name])')
-			//And has no iframes
-			.not(':has(iframe)')
+		this
+			.getEmptyElements('.sectionBody[id]')
 			.each(function(){
 				var
 					$this = $(this),
@@ -43,19 +39,15 @@ $.ddMM.mm_hideEmpty = {
 	
 	/**
 	 * @method hideEmptyTabs
-	 * @version 1.0.2 (2022-05-23)
+	 * @version 1.0.3 (2022-05-23)
 	 * 
 	 * @desc Hide empty tabs.
 	 * 
 	 * @returns {void}
 	 */
 	hideEmptyTabs: function(){
-		//Find tabs
-		$('.tab-pane .tab-page')
-			//That has no inputs
-			.not(':has([name])')
-			//And has no iframes
-			.not(':has(iframe)')
+		this
+			.getEmptyElements('.tab-pane .tab-page')
 			.each(function(){
 				var $this = $(this);
 				
@@ -74,6 +66,26 @@ $.ddMM.mm_hideEmpty = {
 				;
 			})
 		;
+	},
+	
+	/**
+	 * @method getEmptyElements
+	 * @version 1.0 (2022-05-23)
+	 * 
+	 * @desc Get parents that has no children.
+	 * 
+	 * @param selector {string} — jQuery selector to get elements.
+	 * 
+	 * @returns {jQuery}
+	 */
+	getEmptyElements: function(selector){
+		return (
+			$(selector)
+				//That has no inputs
+				.not(':has([name])')
+				//And has no iframes
+				.not(':has(iframe)')
+		);
 	}
 };
 })(jQuery);
