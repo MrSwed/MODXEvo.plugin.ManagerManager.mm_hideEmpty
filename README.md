@@ -67,7 +67,7 @@ You may also read this documentation:
 ### Apply for all roles and templates
 
 ```php
-mm_hideempty();
+mm_hideEmpty();
 ```
 
 
