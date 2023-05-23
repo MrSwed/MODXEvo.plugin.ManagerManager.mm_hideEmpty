@@ -18,7 +18,7 @@ function mm_hideEmpty($params = []){
 		!is_object($params)
 	){
 		//Convert ordered list of params to named
-		$params = ddTools::orderedParamsToNamed([
+		$params = \ddTools::orderedParamsToNamed([
 			'paramsList' => func_get_args(),
 			'compliance' => [
 				'roles',
@@ -48,9 +48,8 @@ function mm_hideEmpty($params = []){
 	}
 	
 	global $modx;
-	$e = &$modx->Event;
 	
-	if ($e->name == 'OnDocFormPrerender'){
+	if ($modx->Event->name == 'OnDocFormPrerender'){
 		//The main js file including
 		$output = includeJsCss(
 			$modx->getConfig('site_url') . 'assets/plugins/managermanager/widgets/mm_hideempty/jQuery.ddMM.mm_hideEmpty.js',
@@ -59,8 +58,8 @@ function mm_hideEmpty($params = []){
 			'1.2.1'
 		);
 		
-		$e->output($output);
-	}elseif ($e->name == 'OnDocFormRender'){
+		$modx->Event->output($output);
+	}elseif ($modx->Event->name == 'OnDocFormRender'){
 		$output = '//---------- mm_hideEmpty :: Begin -----' . PHP_EOL;
 		
 		$output .= '$j.ddMM.mm_hideEmpty.hideEmptySections();' . PHP_EOL;
@@ -68,7 +67,7 @@ function mm_hideEmpty($params = []){
 		
 		$output .= '//---------- mm_hideEmpty :: End -----' . PHP_EOL;
 		
-		$e->output($output);
+		$modx->Event->output($output);
 	}
 }
 ?>
