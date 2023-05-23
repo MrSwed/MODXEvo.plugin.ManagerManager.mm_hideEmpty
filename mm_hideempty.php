@@ -5,7 +5,7 @@
  * 
  * @see README.md
  * 
- * @link http://code.divandesign.biz/modx/mm_hideempty
+ * @link http://code.divandesign.ru/modx/mm_hideempty
  * @link https://github.com/MrSwed/MODXEvo.plugin.ManagerManager.mm_hideEmpty
  * 
  * @copyright 2016–2022
