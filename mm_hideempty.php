@@ -56,7 +56,7 @@ function mm_hideEmpty($params = []){
 			$modx->getConfig('site_url') . 'assets/plugins/managermanager/widgets/mm_hideempty/jQuery.ddMM.mm_hideEmpty.js',
 			'html',
 			'jQuery.ddMM.mm_hideEmpty',
-			'1.2'
+			'1.2.1'
 		);
 		
 		$e->output($output);
