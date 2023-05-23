@@ -12,10 +12,10 @@
 
 
 ## Version 0.2 (2016-11-05)
-* Attention! PHP >= 5.4 is required.
-* Attention! (MODX)Evolution.plugins.ManagerManager >= 0.7 is required.
-* The widget now uses named parameters (with backward compatibility).
-* JS has been moved out to a standalone file.
+* \* Attention! PHP >= 5.4 is required.
+* \* Attention! (MODX)Evolution.plugins.ManagerManager >= 0.7 is required.
+* \* The widget now uses named parameters (with backward compatibility).
+* \* JS has been moved out to a standalone file.
 
 
 ## Version 0.1 (2016-04-25)
