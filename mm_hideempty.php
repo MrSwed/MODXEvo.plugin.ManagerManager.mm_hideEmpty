@@ -60,7 +60,7 @@ function mm_hideEmpty($params = []){
 		);
 		
 		$e->output($output);
-	}else if ($e->name == 'OnDocFormRender'){
+	}elseif ($e->name == 'OnDocFormRender'){
 		$output = '//---------- mm_hideEmpty :: Begin -----' . PHP_EOL;
 		
 		$output .= '$j.ddMM.mm_hideEmpty.hideEmptySections();' . PHP_EOL;
