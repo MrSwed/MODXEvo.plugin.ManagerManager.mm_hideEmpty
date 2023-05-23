@@ -1,6 +1,10 @@
 # (MODX)EvolutionCMS.plugins.ManagerManager.mm_hideEmpty changelog
 
 
+## Version 1.0.1 (2023-05-24)
+* \* False hidings has been significantly reduced with improved input selector (`:input` is used instead of `[name]`).
+
+
 ## Version 1.0 (2022-05-23)
 * \+ Sections and tabs containing only hidden children are also considered as empty.
 * \+ Some native section bodies have no the `id` attribute (e. g. TVs). Now the widget considers these sections too.

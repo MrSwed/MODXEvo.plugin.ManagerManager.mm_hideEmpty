@@ -1,6 +1,6 @@
 {
 	"name": "dd/evolutioncms-plugins-managermanager-mm_hideempty",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A widget for ManagerManager plugin that allows to hide all empty sections and tabs.",
 	"keywords": [
 		"modx",
@@ -28,15 +28,15 @@
 	},
 	"authors": [
 		{
-			"name": "Sergey Davydov",
-			"homepage": "https://github.com/MrSwed",
-			"email": "webmaster@sdcollection.com",
-			"role": "Developer"
-		},
-		{
 			"name": "Ilyas Ronef",
 			"email": "ilyas@DivanDesign.ru",
 			"homepage": "https://ronef.ru",
+			"role": "Developer"
+		},
+		{
+			"name": "Sergey Davydov",
+			"homepage": "https://github.com/MrSwed",
+			"email": "webmaster@sdcollection.com",
 			"role": "Developer"
 		}
 	],
